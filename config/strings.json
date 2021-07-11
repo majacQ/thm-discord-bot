@@ -368,7 +368,9 @@
         "sub_added":"You are now a subscriber, thanks!",
         "verified_added":"You are now verified, you cannot unlink or relink any of your accounts for security reasons. Please contact the TryHackMe Admins or Mods if you need to change one of your accounts.",
         "bughunter_add":"You are now a bug hunter, thanks!",
-        "bughunter_remove":"You are no longer a bug hunter!"
+        "bughunter_remove":"You are no longer a bug hunter!",
+        "lucky_add":"You now have the lucky title! Congrats!",
+        "lucky_remove":"You are no longer have the lucky title!"
     },
     "verify_delete":{
         "help_desc":"Delete a user's token by mentioning them.",
