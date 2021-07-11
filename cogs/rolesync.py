@@ -55,6 +55,7 @@ id_sub = roles["sub"]
 id_contrib = roles["contrib"]
 id_verified = roles["verified"]
 id_bughunter = roles["bughunter"]
+id_lucky = roles["lucky"]
 
 # DB
 db = database.connect_to_db()
@@ -93,6 +94,11 @@ async def remove_verified_role(member):
 
     await member.remove_roles(get(member.guild.roles, id=id_verified))
 
+async def remove_lucky_role(member):
+    """Remove the user's lucky role."""
+
+    await member.remove_roles(get(member.guild.roles, id=id_lucky))
+
 # Update a member's roles.
 async def update(member, dm, data, skipUpdatedMessage = False):
     """Updates the user's roles."""
@@ -123,6 +129,17 @@ async def update(member, dm, data, skipUpdatedMessage = False):
     if level != 998 and has_role(member, id_bughunter):
         await remove_bughunter_role(member)
         cmdResult += s_verify["bughunter_remove"] + "\n"
+
+    # Special case: Lucky.
+    if level == 1336:
+        if not has_role(member, id_lucky):
+            await remove_rank_roles(member)
+            await add_role(member, id_lucky)
+            cmdResult += s_verify["lucky_add"] + "\n"
+
+    if level != 1336 and has_role(member, id_lucky):
+        await remove_lucky_role(member)
+        cmdResult += s_verify["lucky_remove"] + "\n"
 
     # Normal ranks.
     if level < len(id_ranks):
