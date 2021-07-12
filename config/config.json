@@ -28,7 +28,8 @@
     "cogs.docs",
     "cogs.pingmods",
     "cogs.moderation",
-    "cogs.cracking"
+    "cogs.cracking",
+    "cogs.autoban"
   ],
   "disabled_cogs": [],
   "info": {
