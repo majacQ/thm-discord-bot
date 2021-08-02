@@ -370,7 +370,7 @@
         "bughunter_add":"You are now a bug hunter, thanks!",
         "bughunter_remove":"You are no longer a bug hunter!",
         "lucky_add":"You now have the lucky title! Congrats!",
-        "lucky_remove":"You are no longer have the lucky title!"
+        "lucky_remove":"You no longer have the lucky title!"
     },
     "verify_delete":{
         "help_desc":"Delete a user's token by mentioning them.",
