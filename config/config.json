@@ -101,7 +101,7 @@
       "newrooms": "http://tryhackme.com/api/new-rooms/",
       "token": "https://tryhackme.com/tokens/discord/",
       "leaderboard": "https://tryhackme.com/api/leaderboards",
-      "user": "https://tryhackme.com/api/discord/user/Horshark/{}",
+      "user": "https://tryhackme.com/api/discord/user/{}",
       "stats": "https://tryhackme.com/api/site-stats",
       "hacktivities": "https://tryhackme.com/api/hacktivities"
     }
