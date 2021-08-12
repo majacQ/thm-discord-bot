@@ -97,12 +97,12 @@
     "room_join": "https://tryhackme.com/jr/",
     "user_profile": "https://tryhackme.com/p/{}",
     "api": {
-      "room": "https://tryhackme.com/api/room-details?codes={}",
+      "room": "https://tryhackme.com/api/room/details?codes={}",
       "newrooms": "http://tryhackme.com/api/new-rooms/",
       "token": "https://tryhackme.com/tokens/discord/",
       "leaderboard": "https://tryhackme.com/api/leaderboards",
-      "user": "https://tryhackme.com/api/user/{}",
-      "stats": "https://tryhackme.com/api/getstats",
+      "user": "https://tryhackme.com/api/discord/user/Horshark/{}",
+      "stats": "https://tryhackme.com/api/site-stats",
       "hacktivities": "https://tryhackme.com/api/hacktivities"
     }
   },
