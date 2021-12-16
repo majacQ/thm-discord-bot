@@ -68,12 +68,6 @@ s_room_review_url = s_room_review["url"]
 s_room_review_title = s_room_review["title"]
 s_room_review_help = s_room_review["help_desc"]
 
-# Api topic
-s_api = s_docs["api"]
-s_api_url = s_api["url"]
-s_api_title = s_api["title"]
-s_api_help_desc = s_api["help_desc"]
-
 # Koth topic
 s_koth = s_docs["koth"]
 s_koth_url = s_koth["url"]
@@ -143,10 +137,6 @@ class Docs(commands.Cog):
 
         elif topic == "room-review":
             response = getEmbedDocs(s_room_review_title, s_room_review_url, c_docs_picture, c_docs_color)
-            await ctx.send(embed=response)
-
-        elif topic == "api":
-            response = getEmbedDocs(s_api_title, s_api_url, c_docs_picture, c_docs_color)
             await ctx.send(embed=response)
         
         elif topic == "koth":
