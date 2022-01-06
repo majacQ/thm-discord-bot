@@ -189,7 +189,7 @@ class RoleSync(commands.Cog, name="Verifying/Role Assigning Commands"):
             await ctx.message.delete()
 
             msg = await ctx.send(s_verify["error_not_dm"])
-            time.sleep(15)
+            await asyncio.sleep(15)
             await msg.delete()
 
             return
