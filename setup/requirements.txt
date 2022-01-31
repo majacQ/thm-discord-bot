@@ -4,3 +4,4 @@ mysql-connector-python
 Tweepy
 Pillow
 search_that_hash
+loguru>=0.6.0 # not directly required, pinned by Snyk to avoid a vulnerability
