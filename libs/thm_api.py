@@ -46,7 +46,7 @@ def get_sub_status(username):
     except Exception as err:
         print(f'Other error occurred: {err}')
     else:
-        if "<span>Subscribed</span>" in response.text:
+        if "subscribed-icon" in response.text:
             check = "Yes!"
         else:
             check = "No!"
