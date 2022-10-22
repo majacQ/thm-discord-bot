@@ -40,6 +40,8 @@ TryHackMe Python Discord Bot
   - Cooctus
 - 0day
   - Added Ollie bot
+- KyootyBella
+  - Added some more commands/features and fixed some bugs
 
 
 ***Commands:***

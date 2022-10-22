@@ -28,7 +28,8 @@
     "cogs.docs",
     "cogs.pingmods",
     "cogs.moderation",
-    "cogs.cracking"
+    "cogs.cracking",
+    "cogs.autoban"
   ],
   "disabled_cogs": [],
   "info": {
@@ -70,7 +71,8 @@
     "devLead": 578349526574694421,
     "dev": 578056412790390785,
     "bughunter": 638047699328958483,
-    "mentor": 651561956490346515
+    "mentor": 651561956490346515,
+    "pentester": 863175578848722945
   },
   "channels": {
     "welcome": 648878292551598080,
@@ -95,12 +97,12 @@
     "room_join": "https://tryhackme.com/jr/",
     "user_profile": "https://tryhackme.com/p/{}",
     "api": {
-      "room": "https://tryhackme.com/api/room-details?codes={}",
+      "room": "https://tryhackme.com/api/room/details?codes={}",
       "newrooms": "http://tryhackme.com/api/new-rooms/",
       "token": "https://tryhackme.com/tokens/discord/",
       "leaderboard": "https://tryhackme.com/api/leaderboards",
-      "user": "https://tryhackme.com/api/user/{}",
-      "stats": "https://tryhackme.com/api/getstats",
+      "user": "https://tryhackme.com/api/discord/user/{}",
+      "stats": "https://tryhackme.com/api/site-stats",
       "hacktivities": "https://tryhackme.com/api/hacktivities"
     }
   },

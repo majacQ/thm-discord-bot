@@ -28,7 +28,6 @@ from libs.utils import api_fetch, has_role, bool_to_yesno
 from libs.thm_api import get_public_rooms
 from libs.utils import sanitize_check
 
-
 ####################
 # Config variables #
 ####################
@@ -46,7 +45,6 @@ c_join_room = config.get_config("url")["room_join"]
 
 s_no_perm = config.get_string("commands")["no_perm"]
 s_room = config.get_string("room")
-
 
 ###################
 # Other variables #
@@ -75,10 +73,21 @@ async def announce_room(channel, json_data, code=None):
     # Set up embed.
     img = json_data["image"]
     title = json_data["title"]
+    type = json_data["type"]
+
     if code == None:
-        url = c_join_room + str(json_data["code"])
+        code = json_data["code"]
+
+    # Get premium status.
+    specific_data = await api_fetch(c_api_url["room"].formart(code))
+    premium = specific_data["freeToUse"]
+
+    if premium == True:
+        premium = "Free"
     else:
-        url = c_join_room + code
+        premium = "Subscriber"
+
+    url = c_join_room + code
     description = json_data["description"]
 
     embed = officialEmbed(title, description)
@@ -88,8 +97,8 @@ async def announce_room(channel, json_data, code=None):
     announceRole = channel.guild.get_role(id_announcerole)
 
     # Send messages.
-    await channel.send(s_room["newroom"].format(url, announceRole.mention), embed=embed)
- 
+    await channel.send(s_room["newroom"].format(premium, type, url, announceRole.mention), embed=embed)
+
     # Updates local file.
     with open(c_room_data, "w") as file:
         json.dump(json_data, file)
@@ -105,7 +114,9 @@ def get_random_room():
 # COG Body #
 ############
 
+
 class Room(commands.Cog):
+
     def __init__(self, bot):
         self.bot = bot
 
@@ -141,8 +152,7 @@ class Room(commands.Cog):
         embed.set_image(url=img)
 
         for item in data[room_code]["writeups"]:
-            embed.add_field(
-                name="By: "+item["username"], value=item["link"])
+            embed.add_field(name="By: " + item["username"], value=item["link"])
 
         # Send messages.
         await ctx.send(embed=embed)
@@ -158,12 +168,15 @@ class Room(commands.Cog):
 
         await announce_room(channel, data[0])
 
-    @commands.command(name="newroom", description=s_room["newroom_help_desc"] + " (Admin, LeadMod)", usage="{room_code}", hidden=True)
+    @commands.command(name="newroom",
+                      description=s_room["newroom_help_desc"] + " (Admin, LeadMod)",
+                      usage="{room_code}",
+                      hidden=True)
     @check(roles=["modlead", "admin", "thmstaff"], dm_flag=False)
     async def new_room(self, ctx, room=""):
         if room == "":
             await ctx.send(s_room["no_code"])
-        
+
         else:
             data = await api_fetch(c_api_url["room"].format(room))
 
@@ -239,4 +252,3 @@ class Room(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Room(bot))
-	
